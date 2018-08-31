@@ -28,3 +28,5 @@ class HashSet
   def resize!
   end
 end
+
+#Ask about XOR 
