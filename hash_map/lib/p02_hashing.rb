@@ -37,3 +37,6 @@ class Hash
 end
 
 
+
+#ask about XOR in hashing functions
+

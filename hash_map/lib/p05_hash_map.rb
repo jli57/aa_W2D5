@@ -9,12 +9,21 @@ class HashMap
   end
 
   def include?(key)
+    bucket = @store[key.hash % num_buckets]
+    bucket.include?(key)
   end
 
   def set(key, val)
+    bucket = @store[key.hash % num_buckets]
+    if bucket.include?(key)
+      bucket.update(key, val)
+    else
+      bucket.append(key, val)
+    end
   end
 
   def get(key)
+    @store[key.hash % num_buckets].get(key)
   end
 
   def delete(key)
@@ -35,7 +44,6 @@ class HashMap
   alias_method :[]=, :set
 
   private
-
   def num_buckets
     @store.length
   end
