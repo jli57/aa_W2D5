@@ -28,3 +28,31 @@ class MaxIntSet
   
 end 
 
+class IntSet
+  
+  def initialize
+    @store = Array.new(20) { Array.new }
+  end
+  
+  def include?(el)
+    self[el].include?(el)
+  end
+  
+  def insert(el)
+    self[el] << el unless include?(el)
+  end
+  
+  def remove(el)
+    self[el].delete(el) unless include?(el)
+  end
+  
+  def [](el)
+    @store[el % 20]
+  end 
+  
+end 
+
+class ResizingIntSet
+  
+  
+end 
